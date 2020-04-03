@@ -1,9 +1,87 @@
+/ ************* Tutorial 3 ************** /
+
+/ Task 1: MARIE basic
+
+/ ************** Hard code ************** /
+Load 004
+/ Load value from address 004 into AC
+Add 004
+/ Add value from address 004 to value in AC
+Store 004
+/ Store AC into address 004
+Halt
+/ Stop execution
+DEC 42
+/ This is address 004, initialise with value 42
+
+/ ************** Rewritting the program ************** /
+Input
+/ Input a value x
+Store x
+/ Store AC into address x
+Input
+/ Input another value y
+Store y
+/ Store AC into address y
+Load x
+/ Load value from address x into AC
+Add y
+/ Add value from address y to value in AC
+Store Z
+/ Store AC into address Z
+Output
+/ Prints value from AC
+Halt
+/ Stop execution
+x, Dec 0
+y, Dec 0
+Z, Dec 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 / C := 0
-/AC = 0
+/ AC = 0
 Clear
-/AC -> C == STORE 0 AT C
+/ AC -> C == STORE 0 AT C
 Store C
-/if A=0 then jump to line 06 000 (AC < 0) 400 (AC = 0) 800 (AC > 0)
+/ if A=0 then jump to line 06 000 (AC < 0) 400 (AC = 0) 800 (AC > 0)
 loop, Load A
 	  Skipcond 800
       Jump end
@@ -15,13 +93,13 @@ loop, Load A
       Load A
       Subt One
       Store A
-      /Jump to line 2
+      / Jump to line 2
       Jump loop
 end, Halt
 
-/***************** Variables *******************/
+/ ***************** Variables ******************* /
 A, DEC 2
 B, DEC 3
 C, DEC 0
-/***************** cONSTANTS *******************/
+/ ***************** cONSTANTS ******************* /
 One, DEC 1
