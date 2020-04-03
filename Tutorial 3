@@ -1,0 +1,27 @@
+/ C := 0
+/AC = 0
+Clear
+/AC -> C == STORE 0 AT C
+Store C
+/if A=0 then jump to line 06 000 (AC < 0) 400 (AC = 0) 800 (AC > 0)
+loop, Load A
+	  Skipcond 800
+      Jump end
+      / C := C+b
+      Load C
+      Add B
+      Store C
+      / A := A-1
+      Load A
+      Subt One
+      Store A
+      /Jump to line 2
+      Jump loop
+end, Halt
+
+/***************** Variables *******************/
+A, DEC 2
+B, DEC 3
+C, DEC 0
+/***************** cONSTANTS *******************/
+One, DEC 1
