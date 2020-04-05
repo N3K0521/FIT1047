@@ -15,44 +15,44 @@ DEC 42
 / This is address 004, initialise with value 42
 
 / ************** Rewritting the program ************** /
-Input
 / Input a value x
-Store x
-/ Store AC into address x
 Input
+/ Store AC into address x
+Store x
 / Input another value y
-Store y
+Input
 / Store AC into address y
-Load x
+Store y
 / Load value from address x into AC
-Add y
+Load x
 / Add value from address y to value in AC
-Store Z
+Add y
 / Store AC into address Z
-Output
+Store Z
 / Prints value from AC
-Halt
+Output
 / Stop execution
+Halt
+/ ************** Variables ************** /
 x, Dec 0
 y, Dec 0
 Z, Dec 0
 
 / Task 2 /
-
 / C := 0
 / AC = 0
 Clear
 / AC -> C == STORE 0 AT C
 Store C
-/ if A=0 then jump to line 06 000 (AC < 0) 400 (AC = 0) 800 (AC > 0)
+/ Input a value A
 Input
-/ Input a value A /
+/ Store that value in address A
 Store A
-/ store that value in address A /
+/ Input a value B
 Input
-/ Input a value B /
+/ Store that value in address B
 Store B
-/ Store that value in address B /
+/ If A=0 then jump to the end 000 (AC < 0) 400 (AC = 0) 800 (AC > 0)
 loop, Load A
 	Skipcond 800
       Jump end
@@ -64,15 +64,14 @@ loop, Load A
       Load A
       Subt One
       Store A
-      / Jump to line 2
+      / Jump to the beginning of the loop
       Jump loop
 end, Halt
 
 / ***************** Variables ******************* /
-A, DEC x
-B, DEC y
-C, DEC z 
-/ x, y, z can be any numbers /
+A, DEC 3
+B, DEC 2
+C, DEC 0
 
 / ***************** Constants ******************* /
 One, DEC 1
