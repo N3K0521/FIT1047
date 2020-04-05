@@ -45,8 +45,16 @@ Clear
 / AC -> C == STORE 0 AT C
 Store C
 / if A=0 then jump to line 06 000 (AC < 0) 400 (AC = 0) 800 (AC > 0)
+Input
+/ Input a value A /
+Store A
+/ store that value in address A /
+Input
+/ Input a value B /
+Store B
+/ Store that value in address B /
 loop, Load A
-	  Skipcond 800
+	Skipcond 800
       Jump end
       / C := C+b
       Load C
@@ -61,8 +69,10 @@ loop, Load A
 end, Halt
 
 / ***************** Variables ******************* /
-A, DEC 2
-B, DEC 3
-C, DEC 0
+A, DEC x
+B, DEC y
+C, DEC z 
+/ x, y, z can be any numbers /
+
 / ***************** cONSTANTS ******************* /
 One, DEC 1
