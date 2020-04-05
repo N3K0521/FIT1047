@@ -38,7 +38,7 @@ x, Dec 0
 y, Dec 0
 Z, Dec 0
 
-/ Task 2 /
+/ Task 2.2 /
 / C := 0
 / AC = 0
 Clear
@@ -66,12 +66,60 @@ loop, Load A
       Store A
       / Jump to the beginning of the loop
       Jump loop
-end, Halt
+end, Load C
+/ Print the result 
+Output 
+/ Stop execution
+Halt
 
 / ***************** Variables ******************* /
-A, DEC 3
-B, DEC 2
+A, DEC 0
+B, DEC 0
 C, DEC 0
 
+/ ***************** Constants ******************* /
+One, DEC 1
+
+/ Task 2 Inproved (annotations are the same)/
+Clear
+Store C
+Input
+Store A
+Input
+Store B
+/000 (AC < 0) 400 (AC = 0) 800 (AC > 0)
+Load A
+Skipcond 000
+Jump loop
+Clear
+Subt A
+Store A
+Load One
+Store IsNeg
+loop, Load A
+	Skipcond 800
+      Jump end
+      Load C
+      Add B
+      Store C
+      Load A
+      Subt One
+      Store A
+      Jump loop
+end, Load IsNeg
+Skipcond 800
+Jump end2
+Clear
+Subt C
+Store C
+end2, Load C
+Output
+Halt
+
+/ ***************** Variables ******************* /
+A, DEC 0
+B, DEC 0
+C, DEC 0
+IsNeg, DEC 0
 / ***************** Constants ******************* /
 One, DEC 1
