@@ -56,7 +56,7 @@ Store B
 loop, Load A
 	Skipcond 800
       Jump end
-      / C := C+b
+      / C := C+B
       Load C
       Add B
       Store C
