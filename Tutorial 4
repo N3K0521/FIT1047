@@ -1,0 +1,46 @@
+/ ************************* Tutorial 4 *************************** /
+
+***************************************************************************
+/ Task 1 Conditionals
+/ A conditional statement allows the flow of a program to depend on data. In a high-level
+/ programming language, this is typically achieved using if-then-else statements such as the
+/ following (this is Python syntax):
+
+if X == Y:
+    X = X + Y
+else:
+    Y = Y + X
+
+/ Implement this piece of code using MARIE assembly. Make use of labels
+***************************************************************************
+/ Task 1
+
+/ If X == Y: X = X + Y Else: Y = X + Y
+Load X
+Subt Y
+/ Test if X - Y == 0
+Skipcond 400
+Jump Else
+/ X == Y
+Load X
+Add Y
+Store X
+Jump end
+
+/ X != Y so Y = X + Y
+Else, Load Y
+    Add X
+    Store Y
+    Jump end
+
+/ Print X and Y then halt
+end, Load X
+    Output
+    Load Y
+    Output
+    Halt
+
+/Variables
+X, DEC 5
+Y, DEC 5
+******************************************************************************
