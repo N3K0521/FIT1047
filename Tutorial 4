@@ -44,3 +44,97 @@ end, Load X
 X, DEC 5
 Y, DEC 5
 ******************************************************************************
+/ Method 2
+
+Input
+Store X
+Input
+Store Y
+Load X
+Subt Y
+Skipcond 400
+Jump False
+Load X
+Add Y
+Store X
+Halt
+
+False, Load Y
+    Add X
+    Store Y
+    Halt
+
+X, Dec 0
+Y, Dec 0
+*******************************************************************************
+/ Task 2.2
+
+Input
+Store X
+Load X
+Store Y
+JnS Double
+Load Y
+Store X
+Load X
+Output
+Halt
+
+/ Variables
+X, Dec 0 
+Y, Dec 0
+
+/ Double Subroutine
+Double, Hex 0 
+        Load Y
+        Add Y
+        Store Y
+        JumpI Double
+********************************************************************************
+/ Task 2.3
+
+/ The Main Code
+Input
+Store multA
+Input
+Store multB
+Jns Mult
+Load multC
+Output
+Halt
+
+/ Multiplication Subroutine
+Mult,   Hex 0
+        Clear
+        Store multC
+Loop,   Load multA
+        Skipcond 800
+        Jump end
+        Load multC
+        Add multB
+        Store multC
+        Load multA
+        Subt One
+        Store multA
+        Jump Loop
+
+End,    JumpI Mult
+
+/ Variables
+multA, Dec 0
+multB, Dec 0
+multC, Dec 0
+One, Dec 0
+*********************************************************************************
+/ Task 2.4
+
+*********************************************************************************
+/ Task 3
+/ SkipIfGreater X skips the next instruction if the value at memory address X is greater than the value in AC
+/ Give the RTL steps needed to implement the instruction
+
+Fetch
+Mar <- X
+MBR <- M[MAR]
+AC  <- AC - MBR
+if AC < 0, then PC <- PC + 1
