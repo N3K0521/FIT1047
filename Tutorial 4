@@ -128,6 +128,60 @@ One, Dec 0
 *********************************************************************************
 / Task 2.4
 
+/ The Main Code
+Input
+Store expA
+Input
+Store expB
+Jns Exp
+Load expRes
+Output
+Halt
+
+/ Exp Subroutine
+Exp,    Hex 0
+Load One
+Store expRes
+Expl,   Load expA
+        Skipcond 800
+        JumpI Exp
+        Load expRes
+        Store multA
+        Load expB
+        Store multB
+        Jns Mult
+        Load multRes
+        Store expRes
+        Load expA
+        Subt One
+        Store expA
+        Jump Expl
+
+/ Multiplication Subroutine
+Mult,   Hex 0
+        Clear
+        Store multRes
+Loop,   Load multA
+        Skipcond 800
+        Jump End
+        Load multRes
+        Add multB
+        Store multRes
+        Load multA
+        Subt One
+        Store multA
+        Jump Loop
+
+End,    JumpI Mult
+
+/ Variables
+multA, Dec 0
+multB, Dec 0
+multRes, Dec 0
+expA, Dec 0
+expB, Dec 0
+expRes, Dec 0
+One, Dec 0
 *********************************************************************************
 / Task 3
 / SkipIfGreater X skips the next instruction if the value at memory address X is greater than the value in AC
