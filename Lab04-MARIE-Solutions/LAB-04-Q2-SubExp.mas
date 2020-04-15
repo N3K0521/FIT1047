@@ -1,0 +1,58 @@
+﻿/***main program***
+		Load 	numA
+		Store 	expA
+		Load 	numB
+		Store 	expB
+        JnS 	Exp
+        Load 	expRes
+		Store 	numRes
+        Output
+		Halt
+numA,	DEC 3		/first number
+numB,	DEC 5		/second number
+numRes,	DEC 0
+/***************End of Main Priogram*************/
+/***************Subroutine Exp******************/
+expA,	DEC 0	/ exponent
+expB,	DEC 0	/base
+expRes,	DEC 0	/ rult of the exponent function
+Exp,	HEX 0
+		Load 	One
+		Store 	expRes		/ defualt anser for exponent
+expL,   Load 	expA
+		Skipcond 800
+        JumpI 	Exp   		/F
+        Load 	expRes		/T
+		Store 	multA
+		Load 	expB
+		Store 	multB
+   		JnS 	Mult
+        Load 	multRes
+		Store 	expRes
+		Load 	expA
+		Subt 	One
+		Store 	expA
+		Jump 	expL		   
+/***************End of Exp subroutine*************/
+/***************Subroutine Mult******************/
+multA,		DEC 0	/ A
+multB,		DEC 0	/B
+multRes,	DEC 0	/C
+One,		DEC 1
+Zero,		DEC 0	
+Mult,		HEX 0     / subroutine Mult
+			Load 	Zero	/01 C := 0
+            Store 	multRes
+L02,		Load 	multA	/02 if A = 0 then jump to line 06
+			Skipcond 800	/TRUE IF AC CONTENT IS POSTV 
+F,			Jump 	L06 
+T,			Load 	multRes		/03 C := C + B
+            Add 	multB		/ AC = AC (C) + B
+            Store 	multRes
+			Load 	multA		/04 A := A - 1	
+            Subt 	One
+			Store 	multA
+			Jump 	L02			/05 jump to line 02
+L06,		JumpI 	Mult 				/06 halt
+
+

@@ -1,0 +1,36 @@
+﻿			Load 	Zero	/01 C := 0
+            Store 	multRes
+			Load 	multA	/is A negtv?
+            Skipcond 000
+			Jump 	L02		/F
+			Load 	Zero	/T
+			Subt 	multA
+			Store 	multA
+			Load 	One
+			Store 	IsNeg
+L02,		Load 	multA	/02 if A = 0 then jump to line 06
+			Skipcond 800	/TRUE IF AC CONTENT IS POSTV 
+			Jump 	L06 	/F
+			Load 	multRes		/T	/03 C := C + B
+            Add 	multB		/ AC = AC (C) + B
+            Store 	multRes
+			Load 	multA		/04 A := A - 1	
+            Subt 	One
+			Store 	multA
+			Jump 	L02			/05 jump to line 02
+L06,		Load 	IsNeg
+			Skipcond 800
+			Jump 	End			/F
+			Load 	Zero		/T
+			Subt 	multRes
+			Store 	multRes
+End,        Load 	multRes
+			Output 
+            Halt 				/06 halt
+multA,		DEC 3	/ A
+multB,		DEC 5	/B
+multRes,	DEC 0	/C
+One,		DEC 1
+Zero,		DEC 0	
+IsNeg,		DEC 0
+

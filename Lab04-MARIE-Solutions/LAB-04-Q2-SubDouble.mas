@@ -1,0 +1,18 @@
+﻿		Input
+		Store 	num
+		Load 	num
+		Store 	temp
+		JnS 	Double		/subroutine call
+        Load 	temp
+		Store 	num
+		Load 	num
+		Output
+        Halt
+num,	DEC 0
+temp,	DEC 0
+Double,	HEX 0			/ subroutine name
+		Load 	temp
+		Add 	temp
+		Store 	temp
+        JumpI 	Double  / going back to the main programr
+

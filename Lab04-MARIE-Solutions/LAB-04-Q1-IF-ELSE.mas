@@ -1,0 +1,17 @@
+﻿/if X == Y:
+		Load 	X	/ X - Y
+        Subt 	Y	/ AC = X - Y
+        Skipcond 400  / CHEKC FOR AC ( = 0)
+		Jump 	Else	/ F
+True,	Load 	X		/IF: (T)    X = X + Y
+        Add 	Y
+        Store 	X
+        Jump 	End
+Else,	Load 	Y		/else: (F)  Y = Y + X
+		Add 	X
+        Store 	Y
+End,    Halt
+
+X,	DEC 6
+Y,	DEC 5
+
