@@ -1,0 +1,35 @@
+﻿/ Input part
+Input
+Store In1
+Input 
+Store In2
+
+Load In1
+Store Temp
+JnS Double
+Load Temp
+Store In1
+
+Load In2
+Store Temp
+JnS Double
+Load Temp
+Store In2
+
+/ Output part
+Load  In1
+Output
+Load In2
+Output
+Halt
+
+Double, Hex 0  / Subroutine
+Load Temp
+Add Temp
+Store Temp
+JumpI Double
+
+
+In1, Dec 0
+In2, Dec 0
+Temp, Dec 0
